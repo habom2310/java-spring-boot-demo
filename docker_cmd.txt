@@ -1,0 +1,4 @@
+docker run -p 3306:3306 --name mysqldb -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=test -e MYSQL_USER=admin -e MYSQL_PASSWORD=password -d mysql:8
+
+docker run -d -p 8089:8089 --name employee --link mysql-standalone:mysql employee
+
