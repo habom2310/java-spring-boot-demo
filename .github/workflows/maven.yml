@@ -21,15 +21,11 @@ jobs:
     - name: Set up MySQL 8
       uses: mirromutth/mysql-action@master
       with:
-        # host port: 3800 # Optional, default value is 3306. The port of host
-        # container port: 3307 # Optional, default value is 3306. The port of container
-        # character set server: 'utf8' # Optional, default value is 'utf8mb4'. The '--character-set-server' option for mysqld
-        # collation server: 'utf8_general_ci' # Optional, default value is 'utf8mb4_general_ci'. The '--collation-server' option for mysqld
-        mysql version: '8.0' # Optional, default value is "latest". The version of the MySQL
-        mysql database: 'test' # Optional, default value is "test". The specified database which will be create
-        mysql root password: password # Required if "mysql user" is empty, default is empty. The root superuser password
-        # mysql user: admin # Required if "mysql root password" is empty, default is empty. The superuser for the specified database. Can use secrets, too
-        # mysql password: password # Required if "mysql user" exists. The password for the "mysql user"
+        mysql version: '8.0' 
+        mysql database: 'test' 
+        mysql root password: password 
+        # mysql user: admin 
+        # mysql password: password 
     #Cache
     - name: Cache Maven packages
       uses: actions/cache@v1
@@ -40,7 +36,6 @@ jobs:
     #Run Tests
     - name: Run Tests
       run: mvn -B test
-    
 
   build:
     runs-on: ubuntu-latest
@@ -52,7 +47,16 @@ jobs:
       with:
         java-version: '17'
         distribution: 'adopt'
-    - name: Maven Package
-      run: mvn clean package
+    # setup MySQL
+    # - name: Set up MySQL 8
+    #   uses: mirromutth/mysql-action@master
+    #   with:
+    #     mysql version: '8.0' 
+    #     mysql database: 'test' 
+    #     mysql root password: password 
+        # mysql user: admin 
+        # mysql password: password 
+    # - name: Maven Package
+    #   run: mvn clean package
     - name: Maven Verify
       run: mvn --batch-mode --update-snapshots verify

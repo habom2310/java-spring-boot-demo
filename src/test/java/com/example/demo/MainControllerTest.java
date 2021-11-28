@@ -21,5 +21,4 @@ public class MainControllerTest {
     void version() {
         assertEquals( "The actual version is 1.0.0", mainController.version());
     }
-
 }
