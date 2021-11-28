@@ -53,9 +53,9 @@ jobs:
       with:
         mysql version: '8.0' 
         mysql database: 'test' 
-        mysql root password: password 
+        mysql root password: 'rootpassword' 
         mysql user: 'admin' 
-        mysql password: password 
+        mysql password: 'password' 
     # - name: Maven Package
     #   run: mvn clean package
     - name: Maven Verify
