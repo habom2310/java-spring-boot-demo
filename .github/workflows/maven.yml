@@ -47,13 +47,13 @@ jobs:
       with:
         java-version: '17'
         distribution: 'adopt'
-    # setup MySQL
-    # - name: Set up MySQL 8
-    #   uses: mirromutth/mysql-action@master
-    #   with:
-    #     mysql version: '8.0' 
-    #     mysql database: 'test' 
-    #     mysql root password: password 
+    setup MySQL
+    - name: Set up MySQL 8
+      uses: mirromutth/mysql-action@master
+      with:
+        mysql version: '8.0' 
+        mysql database: 'test' 
+        mysql root password: password 
         # mysql user: admin 
         # mysql password: password 
     # - name: Maven Package
