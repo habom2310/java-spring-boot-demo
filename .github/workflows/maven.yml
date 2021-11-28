@@ -21,11 +21,13 @@ jobs:
     - name: Set up MySQL 8
       uses: mirromutth/mysql-action@master
       with:
+        host port: 3306
+        container port: 3306
         mysql version: '8.0' 
         mysql database: 'test' 
-        mysql root password: password 
-        # mysql user: admin 
-        # mysql password: password 
+        mysql root password: 'rootpassword' 
+        mysql user: 'admin' 
+        mysql password: 'password' 
     #Cache
     - name: Cache Maven packages
       uses: actions/cache@v1
@@ -56,8 +58,14 @@ jobs:
         mysql version: '8.0' 
         mysql database: 'test' 
         mysql root password: 'rootpassword' 
-        mysql user: 'admin' 
-        mysql password: 'password' 
+        mysql user: 'admin'
+        mysql password: 'password'
+    # run bash to grant previlege to user mysql
+    # - name: Run script file
+    #   run: |
+    #     chmod +x test.sh
+    #     test.sh
+    #   shell: bash
     # - name: Maven Package
     #   run: mvn clean package
     - name: Maven Verify
