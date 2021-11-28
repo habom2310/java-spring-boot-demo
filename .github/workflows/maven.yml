@@ -47,7 +47,7 @@ jobs:
       with:
         java-version: '17'
         distribution: 'adopt'
-    setup MySQL
+    # setup MySQL
     - name: Set up MySQL 8
       uses: mirromutth/mysql-action@master
       with:
