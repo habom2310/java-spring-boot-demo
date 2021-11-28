@@ -25,7 +25,7 @@ jobs:
         container port: 3306
         mysql version: '8.0' 
         mysql database: 'test' 
-        mysql root password: 'rootpassword' 
+        # mysql root password: 'rootpassword' 
         mysql user: 'admin' 
         mysql password: 'password' 
     #Cache
@@ -57,7 +57,7 @@ jobs:
         container port: 3306
         mysql version: '8.0' 
         mysql database: 'test' 
-        mysql root password: 'rootpassword' 
+        # mysql root password: 'rootpassword' 
         mysql user: 'admin'
         mysql password: 'password'
     # run bash to grant previlege to user mysql
