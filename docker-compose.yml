@@ -1,29 +1,28 @@
 version: "3"
 services:
-  employee:
-    image: employee
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "8089:8089"
-    networks:
-      - employee-mysql
-    depends_on:
-      - mysqldb
- 
-  mysqldb:
+  # employee:
+  #   image: employee
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8089:8089"
+  #   networks:
+  #     - employee-mysql
+  #   depends_on:
+  #     - mysql
+
+  mysql:
     image: mysql:8
+    env:
+      MYSQL_ROOT_PASSWORD: mysecret
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: test
     ports:
       - "3306:3306"
     networks:
       - employee-mysql
-    restart: always
-    environment:
-      - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_DATABASE=test  
-      # - MYSQL_USER=admin
-      # - MYSQL_PASSWORD=password
 
 networks:
   employee-mysql: 
