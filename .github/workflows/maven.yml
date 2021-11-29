@@ -30,6 +30,10 @@ jobs:
         docker-compose up -d
         sleep 10
         docker ps -a
+        docker exec -it mysql mysql -u root -ppassword
+        GRANT USAGE ON *.* TO 'admin'@'%' IDENTIFIED BY PASSWORD 'password'
+        GRANT ALL PRIVILEGES ON `test`.* TO 'admin'@'%'
+        
  
     - name: Maven Verify
       run: mvn --batch-mode --update-snapshots verify
