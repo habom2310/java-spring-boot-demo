@@ -37,8 +37,8 @@ jobs:
         mvn clean package
 
     - name: Upload jar
-        uses: actions/upload-artifact@v1
-        with:
-          name: jarpack
-          path: ./target
+      uses: actions/upload-artifact@v1
+      with:
+        name: jarpack
+        path: ./target
 
