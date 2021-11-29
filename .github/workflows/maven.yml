@@ -14,7 +14,6 @@ jobs:
     # setup MySQL
     services:
       mysql:
-      - name: setup MYSQL
         image: mysql:8.0
         env:
           MYSQL_HOST: 127.0.0.1
@@ -47,7 +46,6 @@ jobs:
     # setup MySQL
     services:
       mysql:
-      - name: setup MYSQL
         image: mysql:8.0
         env:
           MYSQL_HOST: 127.0.0.1
