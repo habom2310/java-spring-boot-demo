@@ -32,8 +32,9 @@ jobs:
         docker ps -a
 
     - name: Maven Verify
-      run: mvn --batch-mode --update-snapshots verify
-      run: mvn clean package
+      run: |
+        mvn --batch-mode --update-snapshots verify
+        mvn clean package
 
     - uses: actions/checkout@v1
     - run: mkdir -p target/
