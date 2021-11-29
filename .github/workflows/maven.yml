@@ -14,6 +14,7 @@ jobs:
     # setup MySQL
     services:
       mysql:
+      - name: setup MYSQL
         image: mysql:8.0
         env:
           MYSQL_HOST: 127.0.0.1
@@ -43,7 +44,19 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-
+    # setup MySQL
+    services:
+      mysql:
+      - name: setup MYSQL
+        image: mysql:8.0
+        env:
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_DB: test
+          MYSQL_USER: admin
+          # MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_PASSWORD: password
+        ports:
+          - "3306:3306"
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 17
@@ -52,16 +65,16 @@ jobs:
         java-version: '17'
         distribution: 'adopt'
     # setup MySQL
-    - name: Set up MySQL 8
-      uses: mirromutth/mysql-action@master
-      with:
-        host port: 3306
-        container port: 3306
-        mysql version: '8.0' 
-        mysql database: 'test' 
-        # mysql root password: 'rootpassword' 
-        mysql user: 'admin'
-        mysql password: 'password'
+    # - name: Set up MySQL 8
+    #   uses: mirromutth/mysql-action@master
+    #   with:
+    #     host port: 3306
+    #     container port: 3306
+    #     mysql version: '8.0' 
+    #     mysql database: 'test' 
+    #     # mysql root password: 'rootpassword' 
+    #     mysql user: 'admin'
+    #     mysql password: 'password'
     # run bash to grant previlege to user mysql
     # - name: Run script file
     #   run: |
