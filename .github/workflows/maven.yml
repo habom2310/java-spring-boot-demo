@@ -30,7 +30,16 @@ jobs:
         docker-compose up -d
         sleep 10
         docker ps -a
-        
- 
+
     - name: Maven Verify
       run: mvn --batch-mode --update-snapshots verify
+      run: mvn clean package
+
+    - uses: actions/checkout@v1
+    - run: mkdir -p target/
+    - run: echo hello > target/demo-1.jar
+
+    - uses: actions/upload-artifact@v1
+      with:
+       name: demo-1
+       path: target/
