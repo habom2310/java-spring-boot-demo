@@ -30,9 +30,10 @@ jobs:
         docker-compose up -d
         sleep 10
         docker ps -a
-        docker exec -i mysql mysql -u root -ppassword
+        docker exec -i mysql mysql -u root -ppassword <<MYSQL_SCRIPT
         GRANT USAGE ON *.* TO 'admin'@'%' IDENTIFIED BY PASSWORD 'password'
         GRANT ALL PRIVILEGES ON `test`.* TO 'admin'@'%'
+        MYSQL_SCRIPT
         
  
     - name: Maven Verify
