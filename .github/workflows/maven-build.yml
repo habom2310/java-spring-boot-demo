@@ -36,7 +36,7 @@ jobs:
         mvn --batch-mode --update-snapshots verify
         mvn clean package
 
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - run: mkdir -p target/
     - run: echo hello > target/demo-1.jar
 
