@@ -1,4 +1,6 @@
 FROM openjdk:17
-ADD target/demo-1.jar demo-1.jar
+RUN mkdir target
+ARG JAR_FILE=./target/*.jar
+COPY ${JAR_FILE} target/app.jar
 EXPOSE 8089
-ENTRYPOINT ["java", "-jar", "demo-1.jar"]
+ENTRYPOINT ["java", "-jar", "/target/app.jar"]

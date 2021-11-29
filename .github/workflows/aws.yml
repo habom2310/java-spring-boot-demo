@@ -17,13 +17,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - uses: actions/download-artifact@v1
-      with:
-          name: demo-1
-          path: target/
-    - run: cat target/demo-1.jar
+    # - uses: actions/download-artifact@v1
+    #   with:
+    #       name: demo-1
+    #       path: target/
+    # - run: cat target/demo-1.jar
+    
     - name: Configure AWS credentials
-
       uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
