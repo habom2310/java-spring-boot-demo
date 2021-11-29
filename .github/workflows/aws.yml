@@ -1,11 +1,11 @@
 name: aws
 
-# on:
-#   workflow_run:
-#     workflows: ["build"]
-#     branches: [main]
-#     types: 
-#       - completed
+on:
+  workflow_run:
+    workflows: ["build"]
+    branches: [main]
+    types: 
+      - completed
 
 jobs:
   deploy:
