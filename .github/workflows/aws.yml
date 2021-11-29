@@ -1,8 +1,8 @@
-name: Build and Push Docker image to AWS ECR
+name: aws
 
 on:
   workflow_run:
-    workflows: ["maven-build"]
+    workflows: ["build"]
     branches: [main]
     types: 
       - completed
@@ -10,7 +10,6 @@ on:
 jobs:
   deploy:
     name: Deploy
-    needs: [build]
     runs-on: ubuntu-latest
 
     steps:
