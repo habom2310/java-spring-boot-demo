@@ -17,8 +17,6 @@ services:
     container_name: mysql
     ports:
       - "3306:3306"
-    networks:
-      - employee-mysql
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=password
@@ -28,6 +26,3 @@ services:
 
     volumes:
       - ./data/mysql:/var/lib/mysql
-
-networks:
-  employee-mysql: 
