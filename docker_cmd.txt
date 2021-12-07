@@ -2,3 +2,4 @@ docker run -p 3306:3306 --name mysqldb -e MYSQL_ROOT_PASSWORD=password -e MYSQL_
 
 docker run -d -p 8089:8089 --name employee --link mysql-standalone:mysql employee
 
+docker build . -f Dockerfile -t tax-calculator:latest --build-arg JAR_FILE=target/*.jar
