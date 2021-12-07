@@ -26,11 +26,11 @@ jobs:
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
 
-    - name: Set up MySQL(via Docker Compose)
-      run: |
-        docker-compose up -d
-        sleep 10
-        docker ps -a
+    # - name: Set up MySQL(via Docker Compose)
+    #   run: |
+    #     docker-compose up -d
+    #     sleep 10
+    #     docker ps -a
 
     - name: Maven Verify
       run: |
